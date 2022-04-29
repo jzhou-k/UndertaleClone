@@ -36,11 +36,15 @@ public class Player extends CombatObject {
 
     // OTHER METHODS //
 
+    public void takeDamage(int damageTaken){
+        this.health -= damageTaken;
+    }
+
     /**
      * this method determines of the player is dead depending on their health
      * @param int playerHealth - the current health of the player
      */
-    public boolean isThereDeath () {
+    public boolean checkDeath () {
 
         if (health <= 0) {
 
