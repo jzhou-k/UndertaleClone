@@ -10,26 +10,20 @@ public class Bullet extends CombatObject {
      * @param <<CombatObject Attributes>>
      * @param damage - this is the damage of the bullet
      */
-    private Bullet (<<CombatObject Attributes>>, int damage) {
+    public Bullet (String name, int damage) {
 
-        super(<<CombatObject Attributes>>);
+        super(name);
         this.damage = 5;
 
     }
 
     // OTHER METHODS //
 
-    public int spawn () {
-
-        int xCoordinate;
-        int yCoordinate;
-
-        xCoordinate = (int)(Math.random() * <<LENGTH OF THE SCREEN>>);
-        yCoordinate = (int)(Math.random() * <<WIDTH OF THE SCREEN>>);
-
+    public void spawn (int x, int y) {
+        this.coord[0] = x;
+        this.coord[1] = y;
+        //xCoordinate = (int)(Math.random() * <<LENGTH OF THE SCREEN>>);
+        //yCoordinate = (int)(Math.random() * <<WIDTH OF THE SCREEN>>);
     }
-
-    
-
 
 }

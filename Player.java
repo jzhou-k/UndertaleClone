@@ -1,17 +1,17 @@
 public class Player extends CombatObject {
 
     /** The health of the player */
-    private int health;
+    private int health = 20;
+    private boolean death = false;   
 
     /**
      * This is the constuctor for Player
      * @param <<PLEASE INCLUDE THE OTHER ATTRIBUTES OF THE SUPERCLASS>>
      * @param health - the health of the player
      */
-    private Player (<<CombatObject Attributes>>, int health) {
+    public Player (String name) {
 
-        super(<<CombatObject Attributes>>);
-        this.health = 100;
+        super(name);
 
     }
 
@@ -21,7 +21,7 @@ public class Player extends CombatObject {
     /**
      * the method sets a new health for the player depending on if they have taken a health potion
      * @param newHealth - if the player used a health postion or not
-     */
+     
     public void setHealth (boolean useHealthPotion) {
 
         if (useHealthPotion == true) {
@@ -31,6 +31,8 @@ public class Player extends CombatObject {
         }
 
     }
+    */
+
 
     // OTHER METHODS //
 
@@ -38,22 +40,19 @@ public class Player extends CombatObject {
      * this method determines of the player is dead depending on their health
      * @param int playerHealth - the current health of the player
      */
-    public boolean isThereDeath (int playerHealth) {
+    public boolean isThereDeath () {
 
-        boolean death = false;
+        if (health <= 0) {
 
-        if (playerHealth = 0 || playerHealth < 0) {
+            death = true;
 
-            death == true;
+        }else {
 
-        }
-
-        else {
-
-            death == false
+            death = false;
 
         }
 
         return death;
-
     }
+
+}
