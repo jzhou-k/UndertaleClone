@@ -59,4 +59,7 @@ public class Player extends CombatObject {
         return death;
     }
 
+    public int getHealth(){
+        return health;
+    }
 }

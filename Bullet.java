@@ -17,13 +17,11 @@ public class Bullet extends CombatObject {
 
     }
 
+    public int getBulletDmg(){
+        return damage;
+    }
+
     // OTHER METHODS //
 
-    public void spawn (int x, int y) {
-        this.coord[0] = x;
-        this.coord[1] = y;
-        //xCoordinate = (int)(Math.random() * <<LENGTH OF THE SCREEN>>);
-        //yCoordinate = (int)(Math.random() * <<WIDTH OF THE SCREEN>>);
-    }
 
 }
