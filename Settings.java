@@ -1,3 +1,4 @@
+// Eric big brain 
 public class Settings
 {
     /*
