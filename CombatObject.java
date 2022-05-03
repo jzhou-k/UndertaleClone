@@ -40,4 +40,9 @@ public class CombatObject {
     public int[] currentCoord(){
         return this.coord;
     }
+
+    //for testing reasons, this allows coord to show up on terminal
+    public void printCoord(){
+        System.out.println(this.name +":" + coord[0] + ","  + coord[1]);
+    }
 }
