@@ -1,6 +1,6 @@
 import java.awt.Color;
 import java.awt.Dimension;
-
+import java.awt.Graphics;
 import javax.swing.JPanel;
 
 public class GamePanel  extends JPanel implements Runnable{
@@ -26,8 +26,36 @@ public class GamePanel  extends JPanel implements Runnable{
     @Override
     public void run() {
         // TODO Auto-generated method stub
+        while(gameThread != null){
+            System.out.println("game loop is running");
+
+        }
         
     }
 
+    public void startGamePanel() {
+        gameThread = new Thread(this);
+        gameThread.start(); //this calls the run method 
+
+    }
+
+    public void update() {
+        update();
+
+        repaint();
+
+
+    }
+
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
+        g.setColor(Color.WHITE);
+        g.fillRect(0, 120, 20, 20);
+        g.dispose();
+    }
+
+    public void repaint(){
+
+    }
 
 }

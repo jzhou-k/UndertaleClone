@@ -12,11 +12,10 @@ public class Main {
         window.add(gamePanel); //equivolent of adding a normal jpanel 
 
         window.pack();
-
+        gamePanel.startGamePanel();
 
         window.setLocationRelativeTo(null);
         window.setVisible(true);
-
         
         
     
