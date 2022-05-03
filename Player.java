@@ -1,8 +1,10 @@
 public class Player extends CombatObject {
 
-    /** The health of the player */
+    /** The current health of the player */
     private int health = 20;
+    /** The max health of the player */
     private int maxHealth = 20;
+    /** whether the player is dead or not*/
     private boolean death = false;   
 
     /**
@@ -27,7 +29,7 @@ public class Player extends CombatObject {
 
         if (newHealth < 0)
         {
-            //nothing happens - invalid
+            this.health = 0;
         }
         else if (newHealth < maxHealth)
         {
@@ -44,6 +46,10 @@ public class Player extends CombatObject {
 
     // OTHER METHODS //
 
+    /**
+     * this method makes
+     * @param int playerHealth - the current health of the player
+     */
     public void takeDamage(int damageTaken){
         this.health -= damageTaken;
     }
@@ -67,6 +73,14 @@ public class Player extends CombatObject {
         return death;
     }
 
+    /*
+    Accessors
+    */
+
+    /**
+    gets the health of the player
+    @return the health of the player
+    */
     public int getHealth(){
         return health;
     }

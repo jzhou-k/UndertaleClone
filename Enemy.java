@@ -4,6 +4,8 @@ public class Enemy {
     Attributes
     */
 
+    /** name of the enemy */
+    private String name;
     /** health points of the enemy */
     private int health;
 
@@ -11,8 +13,10 @@ public class Enemy {
     Constructor
     */
 
-    public Enemy(int health)
+    public Enemy(String name, int health)
     {
+        this.name = name;
+        
         if(health < 0)
         {
             this.health = 1;
