@@ -6,26 +6,38 @@ public class Bullet extends Rectangle {
 
     Color color;
 
-    private int damage;
+   // private int damage;
 
-    Bullet(int xLocation, int yLocation, int width, int height, Color color) {
+    Bullet (int x, int y, int width, int height, Color color) {
 
-        this.xLocation = xLocation;
-        this.yLocation = yLocation;
+        this.x = x;
+        this.y = y;
         this.width = width;
         this.height = height;
         this.color = color;
 
-        this.xLocation = (int)(Math.random() * 300) + 11;
-        this.yLocation = 11;
+    }
 
+    public void spawn (boolean spawnBullet) {
+
+        if (spawnBullet == true) {
+
+            this.x = (int)(Math.random() * 300) + 11;
+            this.y = 11;
+
+        }
+
+        else {
+
+            // nothing
+        }
     }
 
 
     public void draw(Graphics g) {
 
         g.setColor(this.color);
-        g.fillRect (this.xLocation, this.yLocation, this.width, this.height);
+        g.fillRect (this.x, this.y, this.width, this.height);
 
     }
 
