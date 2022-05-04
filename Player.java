@@ -41,6 +41,15 @@ public class Player extends CombatObject {
         }
 
     }
+
+    public void useHealingItem(HealingItem item){
+        if((this.health += item.getHealAmount()) != maxHealth){
+            this.health += item.getHealAmount();
+        }else{
+            this.health = maxHealth;
+        }
+        
+    }
     
 
 
