@@ -43,6 +43,6 @@ public class CombatObject {
 
     //for testing reasons, this allows coord to show up on terminal
     public void printCoord(){
-        System.out.println(this.name + " :" + coord[0] + ","  + coord[1]);
+        System.out.println(this.name +":" + coord[0] + ","  + coord[1]);
     }
 }
