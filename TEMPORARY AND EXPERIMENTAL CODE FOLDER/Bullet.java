@@ -18,6 +18,12 @@ public class Bullet extends Rectangle {
 
     }
 
+    public void setY (int newY) {
+
+        this.y = newY;
+
+    }
+
 /**
     public void falling (boolean bulletFalling) {
 
