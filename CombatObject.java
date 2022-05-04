@@ -45,4 +45,8 @@ public class CombatObject {
     public void printCoord(){
         System.out.println(this.name +":" + coord[0] + ","  + coord[1]);
     }
+
+    public int getSpeed(){
+        return this.speed;
+    }
 }
