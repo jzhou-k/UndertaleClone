@@ -1,7 +1,10 @@
 public class Player extends CombatObject {
 
-    /** The health of the player */
+    /** The current health of the player */
     private int health = 20;
+    /** The max health of the player */
+    private int maxHealth = 20;
+    /** whether the player is dead or not*/
     private boolean death = false;   
 
     /**
@@ -20,22 +23,33 @@ public class Player extends CombatObject {
 
     /**
      * the method sets a new health for the player depending on if they have taken a health potion
-     * @param newHealth - if the player used a health postion or not
-     
-    public void setHealth (boolean useHealthPotion) {
+     * @param newHealth - the new helth of the player
+     */
+    public void setHealth (int newHealth) {
 
-        if (useHealthPotion == true) {
-
-            this.health = (this.health + 10);
-
+        if (newHealth < 0)
+        {
+            this.health = 0;
+        }
+        else if (newHealth < maxHealth)
+        {
+            this.health = health + newHealth;
+        }
+        else
+        {
+            this.health = maxHealth;
         }
 
     }
-    */
+    
 
 
     // OTHER METHODS //
 
+    /**
+     * this method makes
+     * @param int playerHealth - the current health of the player
+     */
     public void takeDamage(int damageTaken){
         this.health -= damageTaken;
     }
@@ -59,6 +73,14 @@ public class Player extends CombatObject {
         return death;
     }
 
+    /*
+    Accessors
+    */
+
+    /**
+    gets the health of the player
+    @return the health of the player
+    */
     public int getHealth(){
         return health;
     }
