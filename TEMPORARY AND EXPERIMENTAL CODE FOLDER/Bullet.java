@@ -1,6 +1,6 @@
 import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
+//import java.awt.event.*;
+//import java.util.*;
 
 public class Bullet extends Rectangle {
 
@@ -18,21 +18,19 @@ public class Bullet extends Rectangle {
 
     }
 
-    public void spawn (boolean spawnBullet) {
+/**
+    public void falling (boolean bulletFalling) {
 
-        if (spawnBullet == true) {
+        if (bulletFalling == true) {
 
-            this.x = (int)(Math.random() * 300) + 11;
-            this.y = 11;
+            for (int FT = this.y; this.y >= 600; FT = FT + 10) {
+            
+                this.y = y + 10;
 
-        }
-
-        else {
-
-            // nothing
+            }
         }
     }
-
+*/
 
     public void draw(Graphics g) {
 
