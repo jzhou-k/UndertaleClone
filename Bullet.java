@@ -1,27 +1,41 @@
-//import java.util.*;
+import java.awt.Rectangle;
+import java.awt.event.*;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.util.*;
 
-public class Bullet extends CombatObject {
+public class Bullet extends Rectangle {
 
-    /** this is the damage of the bullet */
-    private int damage;
+ Color color;
 
-    /**
-     * this is the constructor for Bullet
-     * @param <<CombatObject Attributes>>
-     * @param damage - this is the damage of the bullet
-     */
-    public Bullet (String name, int damage) {
+   // private int damage;
 
-        super(name);
-        this.damage = 5;
+    Bullet (int x, int y, int width, int height, Color color) {
+
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.color = color;
 
     }
 
-    public int getBulletDmg(){
-        return damage;
+
+
+    public void falling () {
+        this.y += 10;
     }
 
-    // OTHER METHODS //
+
+    public void draw(Graphics g) {
+
+        g.setColor(this.color);
+        g.fillRect (this.x, this.y, this.width, this.height);
+
+    }
+
 
 
 }
+
+
