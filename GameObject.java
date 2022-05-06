@@ -18,8 +18,8 @@ public class GameObject {
         this.coord[1] = 0;
         //default size is (1,1)
         this.size[0] = 1;
-        this.size[0] = 1;
-    
+        this.size[0] = 1;     
+    }
     /*
     Accessors
     */
