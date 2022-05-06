@@ -12,6 +12,9 @@ public class GamePanel  extends JPanel implements Runnable{
     final int screenWidth = 16 * 20 ;
     final int screenHeight = 16 * 20;
 
+    //FPS
+    int FPS = 60;
+
     //player default position 
     Player player1 = new Player("juan");
     int playerX = 200;
@@ -33,11 +36,34 @@ public class GamePanel  extends JPanel implements Runnable{
     //what happens when you implement something? 
     @Override
     public void run() {
+
+        double drawInterval = 1000000000/FPS; //0.01666 seconds
+        double nextDrawTime = System.nanoTime() + drawInterval;
+
         // TODO Auto-generated method stub
         while(gameThread != null){
+            
             //System.out.println("game loop is running");
             update();
+
             repaint();
+
+            try {
+                double remainingTime = nextDrawTime - System.nanoTime();
+                remainingTime = remainingTime/1000000;
+
+                if(remainingTime < 0) {
+                    remainingTime = 0;
+                }
+
+                Thread.sleep((long) remainingTime);
+
+                nextDrawTime += drawInterval; 
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            
         }
         
     }
@@ -53,6 +79,15 @@ public class GamePanel  extends JPanel implements Runnable{
         if(keyH.upPressed == true){
             playerY -= ((CombatObject)player1).getSpeed(); //* need to cast it to super class
             //System.out.println("key pressed");
+        }
+        else if(keyH.downPressed == true){
+            playerY += ((CombatObject)player1).getSpeed();
+        }
+        else if(keyH.leftPressed == true){
+            playerX += ((CombatObject)player1).getSpeed();
+        }
+        else if(keyH.rightPressed == true){
+            playerX -= ((CombatObject)player1).getSpeed();
         }
         
 
