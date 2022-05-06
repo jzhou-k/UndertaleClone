@@ -77,17 +77,39 @@ public class GamePanel  extends JPanel implements Runnable{
     public void update() {
         
         if(keyH.upPressed == true){
-            playerY -= ((CombatObject)player1).getSpeed(); //* need to cast it to super class
-            //System.out.println("key pressed");
+            if (playerY - ((CombatObject)player1).getSpeed() > 0)
+            {
+                playerY -= ((CombatObject)player1).getSpeed();
+            }
+            else if(playerY - ((CombatObject)player1).getSpeed() < 0){
+                playerY = 0;
+            }
         }
         else if(keyH.downPressed == true){
-            playerY += ((CombatObject)player1).getSpeed();
+            if (playerY + ((CombatObject)player1).getSpeed() < screenHeight-20)
+            {
+                playerY += ((CombatObject)player1).getSpeed();
+            }
+            else if(playerY + ((CombatObject)player1).getSpeed() > screenHeight-20){
+                playerY = screenHeight-20;
+            }
         }
         else if(keyH.leftPressed == true){
-            playerX += ((CombatObject)player1).getSpeed();
+            if (playerX + ((CombatObject)player1).getSpeed() < screenWidth-20){
+                playerX += ((CombatObject)player1).getSpeed();
+            }
+            else if(playerX + ((CombatObject)player1).getSpeed() > screenWidth-20){
+                playerX = screenWidth-20;
+            }
+                
         }
         else if(keyH.rightPressed == true){
-            playerX -= ((CombatObject)player1).getSpeed();
+            if (playerX - ((CombatObject)player1).getSpeed() > 0){
+                playerX -= ((CombatObject)player1).getSpeed();
+            }
+            else if (playerX - ((CombatObject)player1).getSpeed() < 0){
+                playerX = 0;
+            }
         }
         
 
