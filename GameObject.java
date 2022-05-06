@@ -1,3 +1,10 @@
+package underclonepatrick;
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
 /**
  *
  * @author sunzi
@@ -53,5 +60,9 @@ public class GameObject {
     
     public void setSize (int[] size){
         this.size = size; 
+    }
+    public String toString() {
+        return "Name: " + name + "\nX-Coordinate: " + coord[0] + " Y-Coordinate: " + coord[1] + "\nSize: " + size[0] + ", " + size[1];
+        
     }
 }
