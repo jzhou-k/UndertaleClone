@@ -42,7 +42,7 @@ public class Player extends CombatObject {
 
     }
 
-    public void useHealingItem(HealingItem item){
+    public void useConsumable(Consumable item){
         if((this.health += item.getHealAmount()) != maxHealth){
             this.health += item.getHealAmount();
         }else{

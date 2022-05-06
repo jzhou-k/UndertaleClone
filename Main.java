@@ -4,10 +4,10 @@ import javax.swing.JFrame;
 public class Main {
     public static void main(String[] args){
         Player playerDemo = new Player("PAT");
-        HealingItem item = new HealingItem("water", 1);
+        Consumable item = new Consumable("water", 1);
         playerDemo.takeDamage(15);
         System.out.println(playerDemo.getHealth());
-        playerDemo.useHealingItem(item);
+        playerDemo.useConsumable(item);
         System.out.println(playerDemo.getHealth());
 
         JFrame window = new JFrame();

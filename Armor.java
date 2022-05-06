@@ -7,4 +7,9 @@ public class Armor extends Item {
         this.defense = defense;
     }
 
+    public Armor(String name, int defense){
+        super(name);
+        this.defense = defense;
+    }
+
 }
