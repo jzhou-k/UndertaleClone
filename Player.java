@@ -1,4 +1,4 @@
-public class Player extends CombatObject {
+public class Player extends GameObject {
 
     /** The current health of the player */
     private int health = 20;
@@ -6,6 +6,12 @@ public class Player extends CombatObject {
     private int maxHealth = 20;
     /** whether the player is dead or not*/
     private boolean death = false;   
+    
+    private int speed = 10; 
+    
+    int attackDmg;
+    int defense;
+
 
     /**
      * This is the constuctor for Player
@@ -93,4 +99,10 @@ public class Player extends CombatObject {
     public int getHealth(){
         return health;
     }
+
+    public int getSpeed(){
+        return speed;
+    }
+
+
 }
