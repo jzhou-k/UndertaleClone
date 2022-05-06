@@ -1,6 +1,6 @@
 public class Weapon extends Item {
     
-    int attackDmg;
+    private int attackDmg;
 
     public Weapon(String name, int[] coord, int[] size, String description, int price, int attackDmg){
         super(name, coord, size, description, price);
@@ -11,4 +11,12 @@ public class Weapon extends Item {
         super(name);
         this.attackDmg = attackDmg;
     }
+
+    //Mutators
+    public void setAttackDmg(int attackDmg){
+        this.attackDmg = attackDmg;
+    }
+
 }
+
+
