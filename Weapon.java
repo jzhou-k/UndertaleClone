@@ -17,6 +17,10 @@ public class Weapon extends Item {
         this.attackDmg = attackDmg;
     }
 
+    public int getAttackDmg() {
+        return attackDmg;
+    }
+
 }
 
 

@@ -15,8 +15,13 @@ public class Item extends GameObject{
         super(name);
     }
 
-    
+    public void setDescription(String description){
+        this.description = description;
+    }
 
+    public void setPrice(int price){
+        this.price = price; 
+    }
 
    
 
