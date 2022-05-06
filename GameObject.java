@@ -1,3 +1,7 @@
+/**
+ *
+ * @author sunzi
+ */
 public class GameObject {
     String name; 
     int[] coord = new int[2]; //(x,y)
@@ -15,5 +19,39 @@ public class GameObject {
         //default size is (1,1)
         this.size[0] = 1;
         this.size[0] = 1;
+    
+    /*
+    Accessors
+    */
+
+    public String getName()
+    {
+        return this.name; 
+        
+        //method overiding for npc to be stationary.
+    }
+    
+    public int[] getCoord()
+    {
+        return this.coord;
+    }
+            
+    public int[] getSize()
+    {
+        return this.size;
+    }
+    //mutators
+    
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+    
+    public void setCoord (int[] coord){
+        this.coord = coord;
+    }
+    
+    public void setSize (int[] size){
+        this.size = size; 
     }
 }
