@@ -8,6 +8,8 @@ public class Player extends GameObject {
     private boolean death = false;   
     
     private int speed = 10; 
+
+    private Item[] inventory = new Item[10];
     
     int attackDmg;
     int defense;
@@ -55,6 +57,41 @@ public class Player extends GameObject {
             this.health = maxHealth;
         }
         
+    }
+
+    public void equipWeapon( Weapon weapon){
+        this.attackDmg = weapon.getAttackDmg();
+    }
+
+    public void equipArmor (Armor armor){
+        this.defense = armor.getDefense();
+    }
+
+    public Item[] getInventory() {
+        return inventory;
+    }
+
+    public void pickUpItem(Item item){
+        
+        //This for loop looks for the closest empty index and adds the 
+        //the item to inventory array. (use Array list next time maybe?)
+        for(int i = 0; i < inventory.length; i++){
+            if(inventory[i] == null) {
+                inventory[i] = item;
+                break;
+            }
+
+        }
+    
+    }
+
+    //equip item
+
+    public void printInventory(){
+        for(int i=0; i< inventory.length; i++){
+            System.out.println(inventory[i]);
+        }
+
     }
     
 
