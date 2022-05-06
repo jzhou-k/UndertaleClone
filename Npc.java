@@ -65,10 +65,10 @@ public class Npc extends GameObject{ //new doctor class
          inputKey  = sc.nextLine();
          if (inputKey.equals("A"))
          {
-         System.out.println(this.dialogue[i]);
-         i++;
+            System.out.println(this.dialogue[i]);
+            i++;
          }
        }
-}
+    }
 
 }

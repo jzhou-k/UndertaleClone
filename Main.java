@@ -4,20 +4,23 @@ import javax.swing.JFrame;
 public class Main {
     public static void main(String[] args){
 
-
-
         Player playerDemo = new Player("PAT");
         Consumable water = new Consumable("water", 1);
         Weapon stick = new Weapon("stick", 1);
         Armor tutu = new Armor("tutu", 20);
         playerDemo.takeDamage(15);
-        System.out.println(playerDemo.getHealth());
-
+        //System.out.println(playerDemo.getHealth());
 
         playerDemo.useConsumable(water);
-        System.out.println(playerDemo.getHealth());
+        //System.out.println(playerDemo.getHealth());
 
+        String[] dialogue = {"1","2","3"};
+        int[] NPCoord = {1,2};
+        int[] NPCsize = {10,10};
+        Npc npcLucifer = new Npc ("lucifer",NPCoord,NPCsize,dialogue);
+        npcLucifer.talk(); 
 
+        System.out.println(npcLucifer);
 
         /** 
         JFrame window = new JFrame();
