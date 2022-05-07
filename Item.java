@@ -1,6 +1,8 @@
 public class Item extends GameObject{
 
+    /** decription of item */
     String description;
+    /** price of item */
     int price;
 
 
@@ -15,10 +17,18 @@ public class Item extends GameObject{
         super(name);
     }
 
+    
+    /** 
+     * @param description
+     */
     public void setDescription(String description){
         this.description = description;
     }
 
+    
+    /** 
+     * @param price
+     */
     public void setPrice(int price){
         this.price = price; 
     }

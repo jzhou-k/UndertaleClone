@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 public class Main {
     public static void main(String[] args){
 
+        
         Player playerDemo = new Player("PAT");
         Consumable water = new Consumable("water", 1);
         Weapon stick = new Weapon("stick", 1);
@@ -41,6 +42,5 @@ public class Main {
         System.out.println("demo");
         
     
-
     }
 }

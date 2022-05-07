@@ -15,7 +15,7 @@ public class Bullet extends GameObject {
 
         super(name);
         this.damage = 5;
-
+        
     }
 
     public int getBulletDmg(){
