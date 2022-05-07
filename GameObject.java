@@ -8,18 +8,23 @@ public class GameObject {
     int[] coord = new int[2]; //(x,y)
     int[] size = new int[2];
 
+    //this string contains all formated attributes in gameobject
+    String returnString;
+
     public GameObject(String name, int[] coord, int[] size){
         this.name = name;
         this.coord = coord; 
         this.size = size;
     }
 
+    //default constructor
     public GameObject(String name){
+        this.name = name;
         this.coord[0] = 0;
         this.coord[1] = 0;
         //default size is (1,1)
         this.size[0] = 1;
-        this.size[0] = 1;     
+        this.size[1] = 1;     
     }
     /*
     Accessors

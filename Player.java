@@ -9,10 +9,10 @@ public class Player extends GameObject {
     
     private int speed = 10; 
 
-    private Item[] inventory = new Item[10];
+    private Item[] inventory = new Item[5];
     
-    int attackDmg;
-    int defense;
+    int attackDmg = 0;
+    int defense = 0;
 
 
     /**
@@ -89,11 +89,29 @@ public class Player extends GameObject {
 
     public void printInventory(){
         for(int i=0; i< inventory.length; i++){
-            System.out.println(inventory[i]);
+            if(inventory[i] != null){
+                System.out.println(inventory[i].getName());
+            }else{
+                System.out.println("empty slot");
+            }
+            
         }
 
     }
     
+    public String getInventoryAsString(){
+        String inventoryString = ""; 
+        for(int i=0; i< inventory.length; i++){
+            //
+            if(inventory[i] != null){
+                inventoryString += ("\n" + (i+1) + ": " + inventory[i].getName());
+            }else{
+                inventoryString += ("\nempty slot");
+            }
+        }
+
+        return inventoryString;
+    }
 
 
     // OTHER METHODS //
@@ -141,5 +159,12 @@ public class Player extends GameObject {
         return speed;
     }
 
-
+     @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        String inventoryString = getInventoryAsString();
+        return super.toString() + "\nHealth: " + health + "\nDeath: " + death + "\nSpeed: " + speed + 
+        "\nAttack Damage: " + attackDmg + "\nDefense: " + defense + "\nInventory: " + inventoryString;
+    }
+    
 }

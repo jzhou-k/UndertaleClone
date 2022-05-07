@@ -1,5 +1,15 @@
+import java.lang.management.ThreadInfo;
+
+/*
+ * Name: Julia Zhou
+ * Date: 5/07/2022
+ * Description: This Armor class is a child class to Item 
+ */
+
+
 public class Armor extends Item {
     
+    /** defense number */
     private int defense; 
 
     public Armor(String name, int[] coord, int[] size, String description, int price, int defense){
@@ -12,14 +22,21 @@ public class Armor extends Item {
         this.defense = defense;
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getDefense() {
         return defense;
     }
 
+    
+    /** 
+     * @return String
+     */
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
-        return super.toString();
+        return super.toString() + "\nDefense: " + defense; 
     }
 
 }

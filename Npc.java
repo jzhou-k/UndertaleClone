@@ -4,13 +4,10 @@
  * Description: This is the npc subclass of GameObject class.
  */
  
-/**
-*
-* @author sunzi
-*/
 
-import java.io.*;
 import java.util.*;
+
+
 public class Npc extends GameObject{ //new doctor class
 /**
 * @param args the command line arguments
@@ -38,6 +35,10 @@ public class Npc extends GameObject{ //new doctor class
         this.dialogue = dialogue;
     }
 
+    
+    /** 
+     * @return String[]
+     */
     /*
     Accessors
     */
@@ -69,6 +70,23 @@ public class Npc extends GameObject{ //new doctor class
             i++;
          }
        }
+    }
+
+    public String getDialogueAsString(){
+        String dialogueString = ""; 
+        for(int i=0; i< dialogue.length; i++){
+            //
+            dialogueString += "\n" + dialogue[i];
+        }
+
+        return dialogueString;
+    }
+
+    @Override
+    public String toString() {
+        String dialogueString = getDialogueAsString(); 
+
+        return super.toString() + "\nDialogue: " + dialogueString;
     }
 
 }

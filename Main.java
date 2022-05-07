@@ -3,13 +3,19 @@ import javax.swing.JFrame;
 
 public class Main {
     public static void main(String[] args){
-
+        System.out.println("Our code demo");
         
         Player playerDemo = new Player("PAT");
         Consumable water = new Consumable("water", 1);
         Weapon stick = new Weapon("stick", 1);
         Armor tutu = new Armor("tutu", 20);
-        playerDemo.takeDamage(15);
+        
+        playerDemo.takeDamage(15);          
+        playerDemo.pickUpItem(tutu);
+        playerDemo.pickUpItem(stick);
+        playerDemo.equipArmor(tutu);
+        playerDemo.equipWeapon(stick);
+
         //System.out.println(playerDemo.getHealth());
 
         playerDemo.useConsumable(water);
@@ -19,9 +25,11 @@ public class Main {
         int[] NPCoord = {1,2};
         int[] NPCsize = {10,10};
         Npc npcLucifer = new Npc ("lucifer",NPCoord,NPCsize,dialogue);
-        npcLucifer.talk(); 
-
+        Item item = new Item("Kock", NPCoord, NPCsize, "This is kock", 20);
+        //npcLucifer.talk(); 
         System.out.println(npcLucifer);
+
+       
 
         /** 
         JFrame window = new JFrame();
@@ -39,8 +47,7 @@ public class Main {
         window.setVisible(true);
         */
 
-        System.out.println("demo");
-        
+      
     
     }
 }
