@@ -3,7 +3,6 @@
  * Date: 5/06/2022
  * Description: This is the npc subclass of GameObject class.
  */
- 
 
 import java.util.*;
 
