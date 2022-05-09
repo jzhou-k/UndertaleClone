@@ -15,11 +15,26 @@ public class Weapon extends Item {
 
 
     //Constructors
+    /**
+     * Initialize weapon with name, coord, size, description, price and attack damage
+     * @param name
+     * @param coord
+     * @param size
+     * @param description
+     * @param price
+     * @param attackDmg Attack damage of weapon 
+     */
     public Weapon(String name, int[] coord, int[] size, String description, int price, int attackDmg){
         super(name, coord, size, description, price);
         this.attackDmg = attackDmg;
     }
 
+    /**
+     * Default constructor if folks are too lazy, they just pass in name and defense number 
+     * and other things will be set to default values
+     * @param name
+     * @param attackDmg
+     */
     public Weapon(String name, int attackDmg){
         super(name);
         this.attackDmg = attackDmg;

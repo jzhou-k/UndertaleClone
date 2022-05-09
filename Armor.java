@@ -1,4 +1,3 @@
-import java.lang.management.ThreadInfo;
 
 /*
  * Name: Julia Zhou
@@ -12,11 +11,26 @@ public class Armor extends Item {
     /** defense number */
     private int defense; 
 
+    /**
+     * Initialize armor with name, coord, size, description, price and defense number
+     * @param name
+     * @param coord
+     * @param size
+     * @param description
+     * @param price
+     * @param defense the defense number of armor 
+     */
     public Armor(String name, int[] coord, int[] size, String description, int price, int defense){
         super(name, coord, size, description, price);
         this.defense = defense;
     }
 
+    /**
+     * Default constructor if folks are too lazy, they just pass in name and defense number 
+     * and other things will be set to default values
+     * @param name
+     * @param defense
+     */
     public Armor(String name, int defense){
         super(name);
         this.defense = defense;
@@ -24,7 +38,8 @@ public class Armor extends Item {
 
     
     /** 
-     * @return int
+     * Return defense number 
+     * @return defense number 
      */
     public int getDefense() {
         return defense;
@@ -32,7 +47,8 @@ public class Armor extends Item {
 
     
     /** 
-     * @return String
+     * Returns formatted attributes. 
+     * @return String of formatted attributes in this class
      */
     @Override
     public String toString() {
