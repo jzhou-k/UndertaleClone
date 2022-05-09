@@ -181,7 +181,7 @@ public class Player extends GameObject {
 
         else if (this.health == this.maxHealth) {
 
-            System.out.println ("Health potion was not equipped. Health is already at max.")
+            System.out.println ("Health potion was not equipped. Health is already at max.");
         }
 
         else {
