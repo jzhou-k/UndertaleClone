@@ -51,7 +51,7 @@ public class GamePanel  extends JPanel implements Runnable{
     public void update() {
         
         if(keyH.upPressed == true){
-            playerY -= ((CombatObject)player1).getSpeed(); //* need to cast it to super class
+            playerY -= (player1).getSpeed(); //* need to cast it to super class
             //System.out.println("key pressed");
         }
         

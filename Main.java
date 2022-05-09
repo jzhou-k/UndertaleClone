@@ -26,11 +26,12 @@ public class Main {
         int[] NPCsize = {10,10};
         Npc npcLucifer = new Npc ("lucifer",NPCoord,NPCsize,dialogue);
         Item item = new Item("Kock", NPCoord, NPCsize, "This is kock", 20);
-        //npcLucifer.talk(); 
-        System.out.println(npcLucifer);
+        //  PRESS A to talk
+        npcLucifer.talk(); 
+        //System.out.println(npcLucifer);
 
        
-
+        // This is our graphics section that we gave up after sprint 2 
         /** 
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
