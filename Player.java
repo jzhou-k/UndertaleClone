@@ -143,6 +143,53 @@ public class Player extends GameObject {
         return death;
     }
 
+
+    public void equipItem (String itemName, int itemType, int ItemStats) {
+
+        if (itemType == 1) {
+
+            this.attackDmg = this.attackDmg + ItemStats;
+
+            System.out.println ("A weapon was equipped. Attack damage has increased to " + this.attackDmg);
+
+        }
+
+        if (itemType == 2) {
+
+            this.defense = this.defense + ItemStats;
+
+            System.out.println ("Armour was equipped. Defense has increased to " + this.defense);
+
+        }
+
+        if (itemType == 3 && this.health != this.maxHealth) {
+
+            this.health = this.health + ItemStats;
+
+            if (this.health > this.maxHealth) {
+
+                this.health = this.maxHealth;
+            }
+
+            else {
+
+                // Nothing
+            }
+
+            System.out.println ("Health Potion was equipped. Defense has increased to " + this.health);
+        }
+
+        else if (this.health == this.maxHealth) {
+
+            System.out.println ("Health potion was not equipped. Health is already at max.")
+        }
+
+        else {
+
+            System.out.println ("Health potion was unable to be equipped. Health has not changed.");
+        }
+    }
+
     /*
     Accessors
     */
