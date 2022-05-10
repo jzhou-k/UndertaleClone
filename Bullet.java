@@ -27,15 +27,18 @@ public class Bullet extends GameObject {
         
         return this.damage;
     }
+    
+    /**
+     * this gets the value of the speed of the bullet
+     */
+    public int getSpeed() {
+        return speed;
+    }
 
     // OTHER METHODS //
     public void move(int x, int y) {
         //coord of this particular object is changed
         coord[0] = x;
         coord[1] = y;
-    }
-
-    public int getSpeed() {
-        return speed;
     }
 }
