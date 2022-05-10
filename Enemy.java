@@ -124,14 +124,14 @@ public class Enemy {
     * the enemy drains the player's health to heal themselves
     * @param drain the amount of damage the player takes and the enemy drains
     */
-    public void drainHealth(int drain) {
+    public void drainHealth(Player name, int drain) {
 
         if(drain < 0){
             // invalid - nothing happens
         }
         else{
-            if(player.getHealth() < drain){
-                player.setHealth(0);
+            if(name.getHealth() < drain){
+                name.setHealth(0);
             
                 if(health+drain > maxHealth){
                     this.health = maxHealth;
@@ -141,7 +141,7 @@ public class Enemy {
                 }
             }
             else{
-                player.setHealth(player.getHealth()-drain);
+                name.setHealth(name.getHealth()-drain);
                 if(health+drain > maxHealth){
                     this.health = maxHealth;
                 }
@@ -156,9 +156,9 @@ public class Enemy {
     /**
     * the enemy poisons the player's consumables
     */
-    public void poison() {
+    public void poison(Consumable item) {
 
-        consumable.setHealAmount(-2);
+        item.setHealAmount(-2);
 
     }
 
