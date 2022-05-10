@@ -31,8 +31,14 @@ public class Main {
         Item item = new Item("Kock", NPCoord, NPCsize, "This is kock", 20);
         //  PRESS A to talk
         npcLucifer.talk(); 
+
+        System.out.println("");
+
+        //changing dialogue 
         npcLucifer.setDialogue("emotionally numb", 2);
         System.out.println(npcLucifer);
+        System.out.println("");
+        System.out.println(item);
         //System.out.println(npcLucifer);
 
        

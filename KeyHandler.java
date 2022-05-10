@@ -18,7 +18,6 @@ public class KeyHandler implements KeyListener {
 
 
         if (keyCode == KeyEvent.VK_W){
-            System.out.println(keyCode);
             upPressed = true;
         }
         if (keyCode == KeyEvent.VK_A){
