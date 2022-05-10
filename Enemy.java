@@ -122,6 +122,7 @@ public class Enemy {
 
    /**
     * the enemy drains the player's health to heal themselves
+    * @param name the player that the enmey will drain health from
     * @param drain the amount of damage the player takes and the enemy drains
     */
     public void drainHealth(Player name, int drain) {
@@ -155,6 +156,7 @@ public class Enemy {
 
     /**
     * the enemy poisons the player's consumables
+    * @param item the consumable the enemy will poison
     */
     public void poison(Consumable item) {
 
