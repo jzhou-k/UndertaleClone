@@ -35,6 +35,8 @@ public class Main {
         System.out.println(npcLucifer);
         //System.out.println(npcLucifer);
 
+        npcLucifer.npcShoot(bullet,playerDemo);
+        System.out.println(playerDemo.getHealth());
        
         // This is our graphics section that we gave up after sprint 2 
         

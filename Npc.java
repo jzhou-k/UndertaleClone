@@ -99,5 +99,9 @@ public class Npc extends GameObject{ //new doctor class
 
         return super.toString() + "\nDialogue: " + dialogueString;
     }
+    
+    public void npcShoot(Bullet bullet,Player player){
+      player.takeDamage(bullet);
+    }
 
 }
