@@ -21,13 +21,15 @@ public class Main {
         playerDemo.useConsumable(water);
         //System.out.println(playerDemo.getHealth());
 
-        String[] dialogue = {"1","2","3"};
+        String[] dialogue = {"MrLee","is","emotionally tall"};
         int[] NPCoord = {1,2};
         int[] NPCsize = {10,10};
         Npc npcLucifer = new Npc ("lucifer",NPCoord,NPCsize,dialogue);
         Item item = new Item("Kock", NPCoord, NPCsize, "This is kock", 20);
         //  PRESS A to talk
         npcLucifer.talk(); 
+        npcLucifer.setDialogue("emotionally numb", 2);
+        System.out.println(npcLucifer);
         //System.out.println(npcLucifer);
 
        

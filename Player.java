@@ -50,6 +50,12 @@ public class Player extends GameObject {
 
     }
 
+    public void move(int x, int y) {
+        //coord of this particular object is changed
+        coord[0] = x;
+        coord[1] = y;
+    }
+    
     public void useConsumable(Consumable item){
         if((this.health += item.getHealAmount()) != maxHealth){
             this.health += item.getHealAmount();

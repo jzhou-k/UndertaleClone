@@ -23,6 +23,10 @@ public class Bullet extends GameObject {
     }
 
     // OTHER METHODS //
-
+    public void move(int x, int y) {
+        //coord of this particular object is changed
+        coord[0] = x;
+        coord[1] = y;
+    }
 
 }

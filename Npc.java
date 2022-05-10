@@ -52,7 +52,7 @@ public class Npc extends GameObject{ //new doctor class
    /**
      * Changes the dialogue of Npc
      * @param dialogue - dialogue of npc 
-     * @param i number of dialogues 
+     * @param i the index of dialogues array user wishes to change 
      */ 
     public void setDialogue (String dialogue, int i)
     {
@@ -68,7 +68,7 @@ public class Npc extends GameObject{ //new doctor class
        Scanner sc= new Scanner(System.in);
        String inputKey = " ";
        
-       for (int i = 0; i<4; )
+       for (int i = 0; i<3;)
        {
          inputKey  = sc.nextLine();
          if (inputKey.equals("A"))

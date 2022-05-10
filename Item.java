@@ -12,8 +12,6 @@ public class Item extends GameObject{
     /** price of item */
     private int price;
 
-    /**a formated list of all attributes for item */
-    private String returnString = this.returnString + "\nDescription: " + description + "\nPrice" + price;
 
     /*
     constructor
