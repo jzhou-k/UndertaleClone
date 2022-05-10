@@ -202,7 +202,7 @@ public class Player extends GameObject {
     
     public String getInventoryAsString(){
        
-        String inventoryString = "----------\nPLAYER INVENTORY"; 
+        String inventoryString = "\n----------\nPLAYER INVENTORY"; 
 
         // this for loop puts the inventory items into a variable 
         for(int i=0; i< inventory.length; i++) {
@@ -231,7 +231,7 @@ public class Player extends GameObject {
      * @param bullet the bullet object the player got hit by
      */
     public void takeDamage(Bullet bullet){
-        
+        System.out.println("Player got hit! damage taken: " + bullet.getBulletDmg());
         this.health = this.health - bullet.getBulletDmg();
     }
 

@@ -1,3 +1,5 @@
 This is a notepad
 
 WE NEED TO COMMENT!!!!!!!!!!!!!! 
+
+we need a map class to place everything in. 

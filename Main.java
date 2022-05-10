@@ -13,7 +13,6 @@ public class Main {
 
         playerDemo.takeDamage(bullet);
         playerDemo.useConsumable(water);
-        System.out.println(playerDemo.getHealth());
                   
         playerDemo.pickUpItem(tutu);
         playerDemo.pickUpItem(stick);
