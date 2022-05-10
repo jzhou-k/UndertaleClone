@@ -21,6 +21,8 @@ public class Player extends GameObject {
     /** this is the defense of the player */
     private int defense = 0;
 
+    private int gold = 0;
+
 
 
     /**
@@ -178,7 +180,7 @@ public class Player extends GameObject {
      * this is the method for printing out the player's inventory
      */
     public void printInventory(){
-       
+        System.out.println("----------\nPLAYER INVENTORY");
         for(int i=0; i< inventory.length; i++){
             
             if(inventory[i] != null){
@@ -200,7 +202,7 @@ public class Player extends GameObject {
     
     public String getInventoryAsString(){
        
-        String inventoryString = ""; 
+        String inventoryString = "----------\nPLAYER INVENTORY"; 
 
         // this for loop puts the inventory items into a variable 
         for(int i=0; i< inventory.length; i++) {
@@ -260,8 +262,8 @@ public class Player extends GameObject {
         
         String inventoryString = getInventoryAsString();
         
-        return super.toString() + "\nHealth: " + health + "\nDeath: " + death + "\nSpeed: " + speed + 
-        "\nAttack Damage: " + attackDmg + "\nDefense: " + defense + "\nInventory: " + inventoryString;
+        return super.toString() + "\nHealth: " + health + "\nDeath: " + death + "\nSpeed: " + speed + "\nGold: " + gold + 
+        "\nAttack Damage: " + attackDmg + "\nDefense: " + defense + inventoryString;
     }
 
     /**
@@ -270,6 +272,21 @@ public class Player extends GameObject {
     */
     public int getMaxHealth(){
         return maxHealth;
+    }
+
+    public void earnGold(int goldEarned){
+        //my money don't jiggle jiggle, it folds
+        //alpha grindset player 
+        this.gold += goldEarned;
+
+    }
+
+    public void loseGold(int goldLost){
+        this.gold -= goldLost;
+    }
+    
+    public int getGold() {
+        return gold;
     }
 
     

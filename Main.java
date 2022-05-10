@@ -20,10 +20,32 @@ public class Main {
         playerDemo.equipArmor(tutu);
         playerDemo.equipWeapon(stick);
 
-        //System.out.println(playerDemo.getHealth());
+        //Testing Merchant npc 
+        String[] MerchantDialogue = {"You","want","buy?"};
+        Weapon balletShoes = new Weapon("Ballet Shoes", 7);
+        Armor  cowboyHat = new Armor("Cowboy Hat", 12);
+        Consumable nice = new Consumable("Nice Cream", 15);
+        Item[] pearsonMerchInventory = {balletShoes,cowboyHat,nice};
 
-        //System.out.println(playerDemo.getHealth());
+        //setting random prices on these items
+        for (int i=0; i< pearsonMerchInventory.length; i++){
+            pearsonMerchInventory[i].setPrice(20 + i);
+        }
 
+        //player cannot handle more than 5 items, it bugs out 
+        Merchant pearson = new Merchant("Pearson", MerchantDialogue, pearsonMerchInventory);
+        //pearson.talk();
+        System.out.println(pearson.getMerchasString());
+        playerDemo.earnGold(20);
+        pearson.sell(0, playerDemo);
+
+        //playerDemo.printInventory();
+        System.out.print(playerDemo);
+
+    
+
+        /**
+        //Testing npc dialogue 
         String[] dialogue = {"MrLee","is","emotionally tall"};
         int[] NPCoord = {1,2};
         int[] NPCsize = {10,10};
@@ -60,7 +82,7 @@ public class Main {
         window.setLocationRelativeTo(null);
         window.setVisible(true);
         
-
+         */
       
     
     }

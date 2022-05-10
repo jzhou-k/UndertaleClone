@@ -3,9 +3,6 @@ public class Consumable extends Item{
     /*
     Attributes
     */
-
-    /** name of the item */
-    private String name;
     /** how much the item heals the player */
     private int healAmount;
 

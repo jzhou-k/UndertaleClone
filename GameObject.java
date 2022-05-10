@@ -104,7 +104,7 @@ public class GameObject {
      * @return toString - String of formatted attributes in this class. 
      */
     public String toString() {
-        return "Name: " + name + "\nX-Coordinate: " + coord[0] + " Y-Coordinate: " + coord[1] + "\nSize: " + size[0] + ", " + size[1];
+        return "------------\nALL ATTRIBUTES\n" + "Name: " + name + "\nX-Coordinate: " + coord[0] + " Y-Coordinate: " + coord[1] + "\nSize: " + size[0] + ", " + size[1];
         
     }
 }

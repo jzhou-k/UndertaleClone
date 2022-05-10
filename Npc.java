@@ -34,6 +34,11 @@ public class Npc extends GameObject{ //new doctor class
         this.dialogue = dialogue;
     }
 
+    public Npc(String name, String[] dialogue){
+        super(name);
+        this.dialogue = dialogue;
+    }
+
      
     /*
     Accessors
@@ -67,7 +72,8 @@ public class Npc extends GameObject{ //new doctor class
     {
        Scanner sc= new Scanner(System.in);
        String inputKey = " ";
-       
+    
+       System.out.println("-----------\n" + name + " is talking, press A to continue the dialogue");
        for (int i = 0; i<3;)
        {
          inputKey  = sc.nextLine();
