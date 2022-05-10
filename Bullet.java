@@ -1,10 +1,11 @@
 public class Bullet extends GameObject {
 
     /** this is the damage of the bullet */
-    private int damage;
+    private int damage = 5;
 
     /** this is the speed of the bullet */
-    private int speed;
+    private int speed = 3;
+    
 
     /**
      * this is the constructor for Bullet
@@ -12,17 +13,15 @@ public class Bullet extends GameObject {
      * @param damage - this is the damage of the bullet
      * @param speed - this is the speed of the bullet
      */
-    public Bullet (String name, int damage, int speed) {
+    public Bullet (String name) {
 
         super(name);
-        this.damage = 5;
-        this.speed = 3;
     }
 
     /**
      * this gets the value of the damage of the bullet
      */
-    public int getBulletDmg(){
+    public int getBulletDmg() {
         
         return this.damage;
     }

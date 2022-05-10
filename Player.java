@@ -221,13 +221,16 @@ public class Player extends GameObject {
         return inventoryString;
     }
 
-    /**
-     * this method applys damage taken to the player's health
-     * @param damageTaken - the damage taken by the player
+
+
+    
+    /** 
+     * Player damage when hit by bullet 
+     * @param bullet the bullet object the player got hit by
      */
-    public void takeDamage(int damageTaken){
+    public void takeDamage(Bullet bullet){
         
-        this.health -= damageTaken;
+        this.health = this.health - bullet.getBulletDmg();
     }
 
     /**
