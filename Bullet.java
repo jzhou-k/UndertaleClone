@@ -17,6 +17,8 @@ public class Bullet extends GameObject {
         super(name);
     }
 
+    /** ACCESSORS */
+
     /**
      * this gets the value of the damage of the bullet
      */
