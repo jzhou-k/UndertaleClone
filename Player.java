@@ -2,28 +2,63 @@ public class Player extends GameObject {
 
     /** The current health of the player */
     private int health = 20;
+   
     /** The max health of the player */
     private int maxHealth = 20;
+    
     /** whether the player is dead or not*/
     private boolean death = false;   
     
+    /** this is the speed of the player */
     private int speed = 10; 
 
+    /** this is the inventory of the player */
     private Item[] inventory = new Item[5];
     
-    int attackDmg = 0;
+    /** this is the attack damage of the player */
+    private int attackDmg = 0;
+    
+    /** this is the defense of the player */
     int defense = 0;
 
 
     /**
      * This is the constuctor for Player
-     * @param <<PLEASE INCLUDE THE OTHER ATTRIBUTES OF THE SUPERCLASS>>
-     * @param health - the health of the player
+     * @param name - the name of the player
      */
     public Player (String name) {
 
         super(name);
+    }
 
+
+    /** ACESSORS */
+
+    /**
+     * gets the inventory of the player
+     * @return inventory - the inventory of the player
+     */
+    public Item[] getInventory() {
+       
+        return inventory;
+    }
+    
+    /**
+     * gets the health of the player
+     * @return health - the health of the player
+     */
+    public int getHealth() {
+        
+        return health;
+    }
+
+    /**
+     * gets the speed of the player
+     * @return speed - the speed of the player
+     */
+    public int getSpeed() {
+        
+        return speed;
     }
 
 
@@ -35,98 +70,162 @@ public class Player extends GameObject {
      */
     public void setHealth (int newHealth) {
 
-        if (newHealth < 0)
-        {
+        // this if statement block sets the correct health value for different situations.
+        if (newHealth < 0) {
+
             this.health = 0;
         }
-        else if (newHealth < maxHealth)
-        {
+       
+        else if (newHealth < maxHealth) {
+            
             this.health = health + newHealth;
         }
-        else
-        {
+        
+        else {
+            
             this.health = maxHealth;
         }
-
     }
 
-    public void move(int x, int y) {
-        //coord of this particular object is changed
-        coord[0] = x;
-        coord[1] = y;
-    }
-    
+
+    /** Other Methods */
+
+    /**
+     * this is the method for using comsumable items
+     * @param item - this is the consumable item the player is using
+     */
     public void useConsumable(Consumable item){
-        if((this.health += item.getHealAmount()) != maxHealth){
-            this.health += item.getHealAmount();
-        }else{
-            this.health = maxHealth;
+
+        // this if statement block determines what happens to the health when it is at max or below max
+        if (this.health == this.maxHealth) {
+
+            // prints out health prompt
+            System.out.println ("Health potion was not equipped. Health is already at max.");
         }
         
+        else if (this.health < this.maxHealth) {
+
+            // adds the consumable health boost to the players health
+            this.health = this.health + item.getHealAmount();
+
+            // this if statement block determines is what happens to the players health if it is over max or smaller than max and prints the respective prompt
+            if (this.health > this.maxHealth) {
+
+                // makes players health max
+                this.health = this.maxHealth;
+
+                System.out.println ("Health Potion was equipped. Health has increased to " + this.health);
+            }
+
+            else if (this.health < this.maxHealth) {
+
+                System.out.println ("Health Potion was equipped. Health has increased to " + this.health);
+            }
+
+            else {
+
+                // nothing
+            }
+        }
     }
 
+    /**
+     * This is the method for equipping weapons to the player
+     * @param weapon - this is the weapons equipped to the player
+     */
     public void equipWeapon( Weapon weapon){
-        this.attackDmg = weapon.getAttackDmg();
+        
+        // this calculates the new attack damage of the player
+        this.attackDmg = this.attackDmg + weapon.getAttackDmg();;
+
+        // prints out the attack damage prompt
+        System.out.println ("A weapon was equipped. Attack damage has increased to " + this.attackDmg);
     }
 
+    /**
+     * this is the method for equipping armour to the player
+     * @param armor - this is the armour equipped to the player
+     */
     public void equipArmor (Armor armor){
-        this.defense = armor.getDefense();
+    
+        // this calculates the new defense stat of the player
+        this.defense = this.defense + armor.getDefense();
+
+        // prints out the defense prompt
+        System.out.println ("Armour was equipped. Defense has increased to " + this.defense);
     }
 
-    public Item[] getInventory() {
-        return inventory;
-    }
-
+    /**
+     * this is the method for the player picking up object
+     * @param item - this is the item the player picks up
+     */
     public void pickUpItem(Item item){
         
-        //This for loop looks for the closest empty index and adds the 
-        //the item to inventory array. (use Array list next time maybe?)
-        for(int i = 0; i < inventory.length; i++){
-            if(inventory[i] == null) {
+        //This for loop looks for the closest empty index and adds the item to inventory array.
+        for (int i = 0; i < inventory.length; i++){
+            
+            if (inventory[i] == null) {
+                
                 inventory[i] = item;
+                
                 break;
             }
-
         }
-    
     }
 
-    //equip item
-
+    /**
+     * this is the method for printing out the player's inventory
+     */
     public void printInventory(){
+       
         for(int i=0; i< inventory.length; i++){
+            
             if(inventory[i] != null){
+                
                 System.out.println(inventory[i].getName());
-            }else{
-                System.out.println("empty slot");
             }
             
+            else{
+              
+                System.out.println("empty slot");
+            }  
         }
-
     }
+
+    /**
+     * this method gets the list of inventory items of the player
+     * @return inventoryString - the string of inventory items of the player
+     */
     
     public String getInventoryAsString(){
+       
         String inventoryString = ""; 
-        for(int i=0; i< inventory.length; i++){
-            //
-            if(inventory[i] != null){
-                inventoryString += ("\n" + (i+1) + ": " + inventory[i].getName());
-            }else{
+
+        // this for loop puts the inventory items into a variable 
+        for(int i=0; i< inventory.length; i++) {
+          
+            // if statement block checks array items and puts the item into the variable
+            if(inventory[i] != null) {
+                
+                inventoryString += ("\n" + (i+1) + ": " + inventory[i].getName()); 
+            }
+            
+            else {
+            
                 inventoryString += ("\nempty slot");
             }
         }
 
+        // returns the list of the inventory items
         return inventoryString;
     }
 
-
-    // OTHER METHODS //
-
     /**
-     * this method makes
-     * @param int playerHealth - the current health of the player
+     * this method applys damage taken to the player's health
+     * @param damageTaken - the damage taken by the player
      */
     public void takeDamage(int damageTaken){
+        
         this.health -= damageTaken;
     }
 
@@ -136,86 +235,27 @@ public class Player extends GameObject {
      */
     public boolean checkDeath () {
 
+        // this if statement block checks for player death
         if (health <= 0) {
 
             death = true;
-
-        }else {
+        }
+        
+        else {
 
             death = false;
-
         }
 
         return death;
     }
 
-
-    public void equipItem (String itemName, int itemType, int ItemStats) {
-
-        if (itemType == 1) {
-
-            this.attackDmg = this.attackDmg + ItemStats;
-
-            System.out.println ("A weapon was equipped. Attack damage has increased to " + this.attackDmg);
-
-        }
-
-        if (itemType == 2) {
-
-            this.defense = this.defense + ItemStats;
-
-            System.out.println ("Armour was equipped. Defense has increased to " + this.defense);
-
-        }
-
-        if (itemType == 3 && this.health != this.maxHealth) {
-
-            this.health = this.health + ItemStats;
-
-            if (this.health > this.maxHealth) {
-
-                this.health = this.maxHealth;
-            }
-
-            else {
-
-                // Nothing
-            }
-
-            System.out.println ("Health Potion was equipped. Defense has increased to " + this.health);
-        }
-
-        else if (this.health == this.maxHealth) {
-
-            System.out.println ("Health potion was not equipped. Health is already at max.");
-        }
-
-        else {
-
-            System.out.println ("Health potion was unable to be equipped. Health has not changed.");
-        }
-    }
-
-    /*
-    Accessors
-    */
-
     /**
-    gets the health of the player
-    @return the health of the player
-    */
-    public int getHealth(){
-        return health;
-    }
-
-    public int getSpeed(){
-        return speed;
-    }
-
-     @Override
+     * this method returns the stats of the player
+     */
     public String toString() {
-        // TODO Auto-generated method stub
+        
         String inventoryString = getInventoryAsString();
+        
         return super.toString() + "\nHealth: " + health + "\nDeath: " + death + "\nSpeed: " + speed + 
         "\nAttack Damage: " + attackDmg + "\nDefense: " + defense + "\nInventory: " + inventoryString;
     }
