@@ -21,7 +21,7 @@ public class Player extends GameObject {
     /** this is the defense of the player */
     private int defense = 0;
 
-    / ** this is the gold of the player */
+    /** this is the gold of the player */
     private int gold = 0;
 
 
@@ -98,7 +98,7 @@ public class Player extends GameObject {
        
         else if (newHealth < maxHealth) {
             
-            this.health = health + newHealth;
+            this.health = this.health + newHealth;
         }
         
         else {
@@ -153,7 +153,7 @@ public class Player extends GameObject {
      * This is the method for equipping weapons to the player
      * @param weapon - this is the weapons equipped to the player
      */
-    public void equipWeapon( Weapon weapon){
+    public void equipWeapon(Weapon weapon){
         
         // this calculates the new attack damage of the player
         this.attackDmg = this.attackDmg + weapon.getAttackDmg();;
@@ -248,17 +248,17 @@ public class Player extends GameObject {
     public void takeDamage(Bullet bullet) {
         
         this.health = this.health - bullet.getBulletDmg();
+
         System.out.println("Player got hit! damage taken: " + bullet.getBulletDmg());
     }
 
     /**
      * this method determines of the player is dead depending on their health
-     * @param int playerHealth - the current health of the player
      */
     public boolean checkDeath () {
 
         // this if statement block checks for player death
-        if (health <= 0) {
+        if (this.health <= 0) {
 
             death = true;
         }
@@ -269,17 +269,6 @@ public class Player extends GameObject {
         }
 
         return death;
-    }
-
-    /**
-     * this method returns the stats of the player
-     */
-    public String toString() {
-        
-        String inventoryString = getInventoryAsString();
-        
-        return super.toString() + "\nHealth: " + health + "\nDeath: " + death + "\nSpeed: " + speed + "\nGold: " + gold + 
-        "\nAttack Damage: " + attackDmg + "\nDefense: " + defense + inventoryString;
     }
 
     /**
@@ -298,5 +287,16 @@ public class Player extends GameObject {
     public void loseGold(int goldLost){
         
         this.gold = this.gold - goldLost;
+    }
+
+    /**
+     * this method returns the stats of the player
+     */
+    public String toString() {
+        
+        String inventoryString = getInventoryAsString();
+        
+        return super.toString() + "\nHealth: " + health + "\nDeath: " + death + "\nSpeed: " + speed + "\nGold: " + gold + 
+        "\nAttack Damage: " + attackDmg + "\nDefense: " + defense + inventoryString;
     }
 }
