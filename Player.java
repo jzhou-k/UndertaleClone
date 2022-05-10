@@ -21,6 +21,7 @@ public class Player extends GameObject {
     /** this is the defense of the player */
     private int defense = 0;
 
+    / ** this is the gold of the player */
     private int gold = 0;
 
 
@@ -62,6 +63,22 @@ public class Player extends GameObject {
     public int getSpeed() {
         
         return speed;
+    }
+    
+    /**
+     * gets the max health of the player
+     * @return maxHealth - the max health of the player
+     */
+    public int getMaxHealth(){
+        return maxHealth;
+    }
+    
+    /**
+     * gets the gold of the player
+     * @return gold - the gold of the player
+     */
+    public int getGold() {
+        return gold;
     }
 
 
@@ -195,11 +212,11 @@ public class Player extends GameObject {
         }
     }
 
+    
     /**
      * this method gets the list of inventory items of the player
      * @return inventoryString - the string of inventory items of the player
      */
-    
     public String getInventoryAsString(){
        
         String inventoryString = "\n----------\nPLAYER INVENTORY"; 
@@ -224,15 +241,14 @@ public class Player extends GameObject {
     }
 
 
-
-    
     /** 
      * Player damage when hit by bullet 
      * @param bullet the bullet object the player got hit by
      */
-    public void takeDamage(Bullet bullet){
-        System.out.println("Player got hit! damage taken: " + bullet.getBulletDmg());
+    public void takeDamage(Bullet bullet) {
+        
         this.health = this.health - bullet.getBulletDmg();
+        System.out.println("Player got hit! damage taken: " + bullet.getBulletDmg());
     }
 
     /**
@@ -267,27 +283,20 @@ public class Player extends GameObject {
     }
 
     /**
-    gets the max health of the player
-    @return the max health of the player
-    */
-    public int getMaxHealth(){
-        return maxHealth;
-    }
-
+     * this is the method for the player earning gold
+     * @param goldEarned - the gold earned by the player
+     */
     public void earnGold(int goldEarned){
-        //my money don't jiggle jiggle, it folds
-        //alpha grindset player 
-        this.gold += goldEarned;
 
+        this.gold = this.gold + goldEarned;
     }
 
+    /**
+     * this is the method for the player losing gold
+     * @param goldLost - the gold lost by the player
+     */
     public void loseGold(int goldLost){
+        
         this.gold -= goldLost;
     }
-    
-    public int getGold() {
-        return gold;
-    }
-
-    
 }
