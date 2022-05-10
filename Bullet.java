@@ -10,8 +10,6 @@ public class Bullet extends GameObject {
     /**
      * this is the constructor for Bullet
      * @param name - this is the name of the Bullet
-     * @param damage - this is the damage of the bullet
-     * @param speed - this is the speed of the bullet
      */
     public Bullet (String name) {
 
