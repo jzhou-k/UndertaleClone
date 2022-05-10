@@ -9,6 +9,8 @@ public class Main {
         Consumable water = new Consumable("water", 1);
         Weapon stick = new Weapon("stick", 1);
         Armor tutu = new Armor("tutu", 20);
+
+        
         
         playerDemo.takeDamage(15);          
         playerDemo.pickUpItem(tutu);
