@@ -36,6 +36,12 @@ public class Bullet extends GameObject {
     }
 
     // OTHER METHODS //
+    
+    /**
+     * this is the method to determine to position of the bullet 
+     * @param x - the x intercept position
+     * @param y - the y intercept position
+     */
     public void move(int x, int y) {
         //coord of this particular object is changed
         coord[0] = x;
