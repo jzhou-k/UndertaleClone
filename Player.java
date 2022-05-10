@@ -297,6 +297,6 @@ public class Player extends GameObject {
      */
     public void loseGold(int goldLost){
         
-        this.gold -= goldLost;
+        this.gold = this.gold - goldLost;
     }
 }
