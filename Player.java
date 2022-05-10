@@ -19,7 +19,8 @@ public class Player extends GameObject {
     private int attackDmg = 0;
     
     /** this is the defense of the player */
-    int defense = 0;
+    private int defense = 0;
+
 
 
     /**
@@ -259,5 +260,14 @@ public class Player extends GameObject {
         return super.toString() + "\nHealth: " + health + "\nDeath: " + death + "\nSpeed: " + speed + 
         "\nAttack Damage: " + attackDmg + "\nDefense: " + defense + "\nInventory: " + inventoryString;
     }
+
+    /**
+    gets the max health of the player
+    @return the max health of the player
+    */
+    public int getMaxHealth(){
+        return maxHealth;
+    }
+
     
 }

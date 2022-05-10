@@ -12,6 +12,9 @@ public class GamePanel  extends JPanel implements Runnable{
     final int screenWidth = 16 * 20 ;
     final int screenHeight = 16 * 20;
 
+    //FPS
+    int FPS = 60;
+
     //player default position 
     Player player1 = new Player("juan");
     int playerX = 200;
@@ -33,11 +36,33 @@ public class GamePanel  extends JPanel implements Runnable{
     //what happens when you implement something? 
     @Override
     public void run() {
-        // TODO Auto-generated method stub
+
+        double drawInterval = 1000000000/FPS; //0.01666 seconds
+        double nextDrawTime = System.nanoTime() + drawInterval;
+
         while(gameThread != null){
+            
             //System.out.println("game loop is running");
             update();
+
             repaint();
+
+            try {
+                double remainingTime = nextDrawTime - System.nanoTime();
+                remainingTime = remainingTime/1000000;
+
+                if(remainingTime < 0) {
+                    remainingTime = 0;
+                }
+
+                Thread.sleep((long) remainingTime);
+
+                nextDrawTime += drawInterval; 
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            
         }
         
     }
@@ -51,8 +76,39 @@ public class GamePanel  extends JPanel implements Runnable{
     public void update() {
         
         if(keyH.upPressed == true){
-            playerY -= (player1).getSpeed(); //* need to cast it to super class
-            //System.out.println("key pressed");
+            if (playerY - (player1).getSpeed() > 0)
+            {
+                playerY -= (player1).getSpeed();
+            }
+            else if(playerY - (player1).getSpeed() < 0){
+                playerY = 0;
+            }
+        }
+        else if(keyH.downPressed == true){
+            if (playerY + (player1).getSpeed() < screenHeight-20)
+            {
+                playerY += (player1).getSpeed();
+            }
+            else if(playerY + (player1).getSpeed() > screenHeight-20){
+                playerY = screenHeight-20;
+            }
+        }
+        else if(keyH.leftPressed == true){
+            if (playerX + (player1).getSpeed() < screenWidth-20){
+                playerX += (player1).getSpeed();
+            }
+            else if(playerX + (player1).getSpeed() > screenWidth-20){
+                playerX = screenWidth-20;
+            }
+                
+        }
+        else if(keyH.rightPressed == true){
+            if (playerX - (player1).getSpeed() > 0){
+                playerX -= (player1).getSpeed();
+            }
+            else if (playerX - (player1).getSpeed() < 0){
+                playerX = 0;
+            }
         }
         
 

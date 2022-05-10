@@ -7,14 +7,12 @@ public class KeyHandler implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-        // TODO Auto-generated method stub
         
     }
 
     //this method runs **once** everytime key gets pressed
     @Override
     public void keyPressed(KeyEvent e) {
-        // TODO Auto-generated method stub
         //this converts keyevent e into numbered code corressponding to keys
         int keyCode = e.getKeyCode(); 
 

@@ -63,4 +63,22 @@ public class Consumable extends Item{
     {
         this.name = newName;
     }
+
+    /*
+    Methods
+    */
+
+    /**
+    * returns all the attributes of the consumable in a String
+    * @return all the consumable's attributes
+    */
+   public String toString() {
+    String attributes;
+    attributes = ("Name: " + name + "\nHeal Amount: " + healAmount);
+  
+    return attributes; 
+   }
+    
+    
+
 }
