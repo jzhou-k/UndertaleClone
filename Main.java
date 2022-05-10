@@ -1,14 +1,8 @@
+import javax.swing.JFrame;
 
 
 public class Main {
     public static void main(String[] args){
-<<<<<<< Updated upstream
-        System.out.println("This is where we run our main game and also do testing");
-        CombatObject player = new Player("A");
-        Player player2 =  new Player("B");
-        //? does bullet need to have a name? 
-        Bullet bullet  = new Bullet("bullet", 10);
-=======
         System.out.println("Our code demo");
         
         Player playerDemo = new Player("PAT");
@@ -29,24 +23,35 @@ public class Main {
 
         playerDemo.useConsumable(water);
         //System.out.println(playerDemo.getHealth());
->>>>>>> Stashed changes
 
-        player.printCoord();
-        bullet.printCoord();
+        String[] dialogue = {"1","2","3"};
+        int[] NPCoord = {1,2};
+        int[] NPCsize = {10,10};
+        Npc npcLucifer = new Npc ("lucifer",NPCoord,NPCsize,dialogue);
+        Item item = new Item("Kock", NPCoord, NPCsize, "This is kock", 20);
+        //  PRESS A to talk
+        npcLucifer.talk(); 
+        //System.out.println(npcLucifer);
 
-        player.move(12, 2);
-        bullet.move(1, 2);
-        
-        player.printCoord();
-        bullet.printCoord();
+       
+        // This is our graphics section that we gave up after sprint 2 
+        /** 
+        JFrame window = new JFrame();
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        window.setResizable(false);
+        window.setTitle("Undertale");
 
-        System.out.println(player2.checkDeath());
-        player2.takeDamage(bullet.getBulletDmg());
-        System.out.println(player2.getHealth());
-        player2.takeDamage(15);
-        System.out.println(player2.checkDeath());
-        System.out.println(player2.getHealth());
+        GamePanel gamePanel = new GamePanel();
+        window.add(gamePanel); //equivolent of adding a normal jpanel 
+
+        window.pack();
+        gamePanel.startGamePanel();
+
+        window.setLocationRelativeTo(null);
+        window.setVisible(true);
+        */
+
+      
     
-
     }
 }

@@ -1,18 +1,64 @@
-public class Player extends CombatObject {
+public class Player extends GameObject {
 
-    /** The health of the player */
+    /** The current health of the player */
     private int health = 20;
+   
+    /** The max health of the player */
+    private int maxHealth = 20;
+    
+    /** whether the player is dead or not*/
     private boolean death = false;   
+    
+    /** this is the speed of the player */
+    private int speed = 10; 
+
+    /** this is the inventory of the player */
+    private Item[] inventory = new Item[5];
+    
+    /** this is the attack damage of the player */
+    private int attackDmg = 0;
+    
+    /** this is the defense of the player */
+    int defense = 0;
+
 
     /**
      * This is the constuctor for Player
-     * @param <<PLEASE INCLUDE THE OTHER ATTRIBUTES OF THE SUPERCLASS>>
-     * @param health - the health of the player
+     * @param name - the name of the player
      */
     public Player (String name) {
 
         super(name);
+    }
 
+
+    /** ACESSORS */
+
+    /**
+     * gets the inventory of the player
+     * @return inventory - the inventory of the player
+     */
+    public Item[] getInventory() {
+       
+        return inventory;
+    }
+    
+    /**
+     * gets the health of the player
+     * @return health - the health of the player
+     */
+    public int getHealth() {
+        
+        return health;
+    }
+
+    /**
+     * gets the speed of the player
+     * @return speed - the speed of the player
+     */
+    public int getSpeed() {
+        
+        return speed;
     }
 
 
@@ -20,26 +66,82 @@ public class Player extends CombatObject {
 
     /**
      * the method sets a new health for the player depending on if they have taken a health potion
-     * @param newHealth - if the player used a health postion or not
-     
-    public void setHealth (boolean useHealthPotion) {
+     * @param newHealth - the new helth of the player
+     */
+    public void setHealth (int newHealth) {
 
-        if (useHealthPotion == true) {
+        // this if statement block sets the correct health value for different situations.
+        if (newHealth < 0) {
 
-            this.health = (this.health + 10);
-
+            this.health = 0;
         }
-
+       
+        else if (newHealth < maxHealth) {
+            
+            this.health = health + newHealth;
+        }
+        
+        else {
+            
+            this.health = maxHealth;
+        }
     }
-    */
 
 
-    // OTHER METHODS //
+    /** Other Methods */
 
-<<<<<<< Updated upstream
-    public void takeDamage(int damageTaken){
-        this.health -= damageTaken;
-=======
+    /**
+     * this is the method for using comsumable items
+     * @param item - this is the consumable item the player is using
+     */
+    public void useConsumable(Consumable item){
+
+        // this if statement block determines what happens to the health when it is at max or below max
+        if (this.health == this.maxHealth) {
+
+            // prints out health prompt
+            System.out.println ("Health potion was not equipped. Health is already at max.");
+        }
+        
+        else if (this.health < this.maxHealth) {
+
+            // adds the consumable health boost to the players health
+            this.health = this.health + item.getHealAmount();
+
+            // this if statement block determines is what happens to the players health if it is over max or smaller than max and prints the respective prompt
+            if (this.health > this.maxHealth) {
+
+                // makes players health max
+                this.health = this.maxHealth;
+
+                System.out.println ("Health Potion was equipped. Health has increased to " + this.health);
+            }
+
+            else if (this.health < this.maxHealth) {
+
+                System.out.println ("Health Potion was equipped. Health has increased to " + this.health);
+            }
+
+            else {
+
+                // nothing
+            }
+        }
+    }
+
+    /**
+     * This is the method for equipping weapons to the player
+     * @param weapon - this is the weapons equipped to the player
+     */
+    public void equipWeapon( Weapon weapon){
+        
+        // this calculates the new attack damage of the player
+        this.attackDmg = this.attackDmg + weapon.getAttackDmg();;
+
+        // prints out the attack damage prompt
+        System.out.println ("A weapon was equipped. Attack damage has increased to " + this.attackDmg);
+    }
+
     /**
      * this is the method for equipping armour to the player
      * @param armor - this is the armour equipped to the player
@@ -124,7 +226,6 @@ public class Player extends CombatObject {
     public void takeDamage(Bullet bullet){
         
         this.health = this.health - bullet.getBulletDmg();
->>>>>>> Stashed changes
     }
 
     /**
@@ -133,20 +234,29 @@ public class Player extends CombatObject {
      */
     public boolean checkDeath () {
 
+        // this if statement block checks for player death
         if (health <= 0) {
 
             death = true;
-
-        }else {
+        }
+        
+        else {
 
             death = false;
-
         }
 
         return death;
     }
 
-    public int getHealth(){
-        return health;
+    /**
+     * this method returns the stats of the player
+     */
+    public String toString() {
+        
+        String inventoryString = getInventoryAsString();
+        
+        return super.toString() + "\nHealth: " + health + "\nDeath: " + death + "\nSpeed: " + speed + 
+        "\nAttack Damage: " + attackDmg + "\nDefense: " + defense + "\nInventory: " + inventoryString;
     }
+    
 }
