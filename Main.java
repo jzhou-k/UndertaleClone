@@ -1,3 +1,4 @@
+import javax.sound.midi.Soundbank;
 import javax.swing.JFrame;
 
 
@@ -40,6 +41,7 @@ public class Main {
 
         //playerDemo.printInventory();
         System.out.print(playerDemo);
+        System.out.println(pearson);
 
     
 

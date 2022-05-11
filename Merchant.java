@@ -16,15 +16,29 @@ public class Merchant extends Npc {
 
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getMerchasString(){
-        String merchString = "----------\n" + name + "'s inventory"; 
+        String merchString = "\n----------\n" + name + "'s inventory"; 
         for(int i=0; i< merchInventory.length; i++){
-            merchString += "\n" + i + " " + (merchInventory[i].getName()) + " " + merchInventory[i].getPrice() + "G" ;
+            if(merchInventory[i] != null){
+                merchString += "\n" + i + " " + (merchInventory[i].getName()) + " " + merchInventory[i].getPrice() + "G" ;
+            }else{
+                System.out.println("empty spot");
+            }
+            
         }
 
         return merchString;
     }
 
+    
+    /** 
+     * @param merchIndex
+     * @param player
+     */
     //this method will bug out if merchIndex is outta bounds 
     //this method depend on player class (Eric's class)
     //this method also depend on the Item class (my class)
@@ -42,5 +56,13 @@ public class Merchant extends Npc {
         }else{
             System.out.println("not enough gold");
         }
+    }
+
+    @Override
+    public String toString() {
+        String merchList = this.getMerchasString();
+
+        // TODO Auto-generated method stub
+        return (super.toString()) + merchList;
     }
 }
