@@ -45,7 +45,7 @@ public class Main {
 
     
 
-        /**
+        
         //Testing npc dialogue 
         String[] dialogue = {"MrLee","is","emotionally tall"};
         int[] NPCoord = {1,2};
@@ -83,7 +83,7 @@ public class Main {
         window.setLocationRelativeTo(null);
         window.setVisible(true);
         
-         */
+         
       
     
     }
