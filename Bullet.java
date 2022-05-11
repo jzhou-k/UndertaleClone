@@ -30,7 +30,27 @@ public class Bullet extends GameObject {
      * this gets the value of the speed of the bullet
      */
     public int getSpeed() {
-        return speed;
+        return this.speed;
+    }
+
+    /** MUTATORS */
+
+    /**
+     * this is the settor of the bullet's new damage
+     * @param newDamage - this is the new damage of the bullet
+     */
+    public void setDamage (int newDamage) {
+
+        this.damage = newDamage;
+    }
+
+    /**
+     * this is the settor of the bullet's new speed
+     * @param newSpeed - this is the new speed of the bullet
+     */
+    public void setSpeed (int newSpeed) {
+
+        this.speed = newSpeed;
     }
 
     // OTHER METHODS //
