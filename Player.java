@@ -21,6 +21,7 @@ public class Player extends GameObject {
     /** this is the defense of the player */
     private int defense = 0;
 
+    /** this is the gold of the player */
     private int gold = 0;
 
 
@@ -63,6 +64,22 @@ public class Player extends GameObject {
         
         return speed;
     }
+    
+    /**
+     * gets the max health of the player
+     * @return maxHealth - the max health of the player
+     */
+    public int getMaxHealth(){
+        return maxHealth;
+    }
+    
+    /**
+     * gets the gold of the player
+     * @return gold - the gold of the player
+     */
+    public int getGold() {
+        return gold;
+    }
 
 
     // MUTATORS //
@@ -81,7 +98,7 @@ public class Player extends GameObject {
        
         else if (newHealth < maxHealth) {
             
-            this.health = health + newHealth;
+            this.health = this.health + newHealth;
         }
         
         else {
@@ -136,7 +153,7 @@ public class Player extends GameObject {
      * This is the method for equipping weapons to the player
      * @param weapon - this is the weapons equipped to the player
      */
-    public void equipWeapon( Weapon weapon){
+    public void equipWeapon(Weapon weapon){
         
         // this calculates the new attack damage of the player
         this.attackDmg = this.attackDmg + weapon.getAttackDmg();;
@@ -195,11 +212,11 @@ public class Player extends GameObject {
         }
     }
 
+    
     /**
      * this method gets the list of inventory items of the player
      * @return inventoryString - the string of inventory items of the player
      */
-    
     public String getInventoryAsString(){
        
         String inventoryString = "\n----------\nPLAYER INVENTORY"; 
@@ -224,25 +241,24 @@ public class Player extends GameObject {
     }
 
 
-
-    
     /** 
      * Player damage when hit by bullet 
      * @param bullet the bullet object the player got hit by
      */
-    public void takeDamage(Bullet bullet){
-        System.out.println("Player got hit! damage taken: " + bullet.getBulletDmg());
+    public void takeDamage(Bullet bullet) {
+        
         this.health = this.health - bullet.getBulletDmg();
+
+        System.out.println("Player got hit! damage taken: " + bullet.getBulletDmg());
     }
 
     /**
      * this method determines of the player is dead depending on their health
-     * @param int playerHealth - the current health of the player
      */
     public boolean checkDeath () {
 
         // this if statement block checks for player death
-        if (health <= 0) {
+        if (this.health <= 0) {
 
             death = true;
         }
@@ -256,6 +272,24 @@ public class Player extends GameObject {
     }
 
     /**
+     * this is the method for the player earning gold
+     * @param goldEarned - the gold earned by the player
+     */
+    public void earnGold(int goldEarned){
+
+        this.gold = this.gold + goldEarned;
+    }
+
+    /**
+     * this is the method for the player losing gold
+     * @param goldLost - the gold lost by the player
+     */
+    public void loseGold(int goldLost){
+        
+        this.gold = this.gold - goldLost;
+    }
+
+    /**
      * this method returns the stats of the player
      */
     public String toString() {
@@ -265,29 +299,4 @@ public class Player extends GameObject {
         return super.toString() + "\nHealth: " + health + "\nDeath: " + death + "\nSpeed: " + speed + "\nGold: " + gold + 
         "\nAttack Damage: " + attackDmg + "\nDefense: " + defense + inventoryString;
     }
-
-    /**
-    gets the max health of the player
-    @return the max health of the player
-    */
-    public int getMaxHealth(){
-        return maxHealth;
-    }
-
-    public void earnGold(int goldEarned){
-        //my money don't jiggle jiggle, it folds
-        //alpha grindset player 
-        this.gold += goldEarned;
-
-    }
-
-    public void loseGold(int goldLost){
-        this.gold -= goldLost;
-    }
-    
-    public int getGold() {
-        return gold;
-    }
-
-    
 }
