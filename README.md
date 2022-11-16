@@ -1,3 +1,2 @@
 # UndertaleClone
-by monkeys
-by yvonne 
+This is our grade 12 game project demonstrating oop
